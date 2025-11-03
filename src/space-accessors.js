@@ -46,7 +46,12 @@ function addSpaceAccessors (id, space) {
 					return Reflect.has(obj, property);
 				},
 				get: (obj, property, receiver) => {
-					if (property && typeof property !== "symbol" && !(property in obj) && (property in proxy)) {
+					if (
+						property &&
+						typeof property !== "symbol" &&
+						!(property in obj) &&
+						property in proxy
+					) {
 						let { index } = ColorSpace.resolveCoord([space, property]);
 
 						if (index >= 0) {
@@ -59,7 +64,7 @@ function addSpaceAccessors (id, space) {
 				set: (obj, property, value, receiver) => {
 					if (
 						(property && typeof property !== "symbol" && !(property in obj)) ||
-						property >= 0
+						Number(property) >= 0
 					) {
 						let { index } = ColorSpace.resolveCoord([
 							space,

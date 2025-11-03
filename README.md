@@ -25,6 +25,7 @@ all with sensible defaults
 - **Readable, object-oriented API**: Color objects for multiple operations on the same color, and static `Color.something()` functions for one-off calculations
 - **Modular & Extensible**: Use only what you need, or a bundle. Client-side or Node. Deep extensibility with <a href="https://colorjs.io/api/#Hooks-hooks.js">hooks</a>.
 - **Fast & efficient**: <a href="https://colorjs.io/docs/procedural.html">Procedural, tree-shakeable API</a> available for performance sensitive tasks and reduced bundle size
+- **Dependency free**: Not that there’s anything wrong with dependencies, but we gotta mention it!
 
 </header>
 

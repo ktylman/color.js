@@ -13,9 +13,9 @@ import getColor from "./getColor.js";
 import deltaEMethods from "./deltaE/index.js";
 import { WHITES } from "./adapt.js";
 
-// Type "imports"
-/** @typedef {import("./types.js").ColorTypes} ColorTypes */
-/** @typedef {import("./types.js").PlainColorObject} PlainColorObject */
+/** @import { ColorTypes, PlainColorObject } from "./types.js" */
+
+// Type re-exports
 /** @typedef {import("./types.js").ToGamutOptions} ToGamutOptions */
 
 /**
@@ -72,7 +72,7 @@ export default function toGamut (
 		space = undefined,
 		deltaEMethod = "",
 		jnd = 2,
-		blackWhiteClamp = {},
+		blackWhiteClamp = undefined,
 	} = {},
 ) {
 	color = getColor(color);
@@ -116,10 +116,14 @@ export default function toGamut (
 				}
 			}
 
+			if (jnd === 0) {
+				jnd = 1e-16;
+			}
+
 			let clipped = toGamut(to(color, space), { method: "clip", space });
 			if (de(color, clipped) > jnd) {
 				// Clamp to SDR white and black if required
-				if (Object.keys(blackWhiteClamp).length === 3) {
+				if (blackWhiteClamp && Object.keys(blackWhiteClamp).length === 3) {
 					let channelMeta = ColorSpace.resolveCoord(blackWhiteClamp.channel);
 					let channel = get(to(color, channelMeta.space), channelMeta.id);
 					if (util.isNone(channel)) {

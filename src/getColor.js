@@ -2,23 +2,19 @@ import ColorSpace from "./ColorSpace.js";
 import { isString, isInstance } from "./util.js";
 import parse from "./parse.js";
 
-// Type "imports"
-/** @typedef {import("./types.js").ColorTypes} ColorTypes */
-/** @typedef {import("./types.js").PlainColorObject} PlainColorObject */
+/** @import { ColorTypes, ParseOptions as GetColorOptions, PlainColorObject } from "./types.js" */
 
 /**
  * Resolves a color reference (object or string) to a plain color object
  * @overload
  * @param {ColorTypes} color
- * @param {object} [options]
- * @param {boolean} [options.parseMeta] Optional object to hold parsing metadata
+ * @param {GetColorOptions} [options]
  * @returns {PlainColorObject}
  */
 /**
  * @overload
  * @param {ColorTypes[]} color
- * @param {object} [options]
- * @param {boolean} [options.parseMeta] Optional object to hold parsing metadata
+ * @param {GetColorOptions} [options]
  * @returns {PlainColorObject[]}
  */
 export default function getColor (color, options) {

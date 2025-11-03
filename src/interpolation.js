@@ -13,14 +13,13 @@ import defaults from "./defaults.js";
 import * as angles from "./angles.js";
 import deltaE from "./deltaE.js";
 
-// Type "imports"
-/** @typedef {import("./types.js").ColorTypes} ColorTypes */
+/** @import { ColorTypes, PlainColorObject, Ref } from "./types.js" */
+
+// Type re-exports
 /** @typedef {import("./types.js").MixOptions} MixOptions */
-/** @typedef {import("./types.js").PlainColorObject} PlainColorObject */
 /** @typedef {import("./types.js").Range} Range */
 /** @typedef {import("./types.js").RangeOptions} RangeOptions */
 /** @typedef {import("./types.js").StepsOptions} StepsOptions */
-/** @typedef {import("./types.js").Ref} Ref  */
 
 /**
  * Return an intermediate color between two colors
@@ -34,11 +33,11 @@ import deltaE from "./deltaE.js";
  * @overload
  * @param {ColorTypes} c1
  * @param {ColorTypes} c2
- * @param {number} p
+ * @param {number} [p=0.5]
  * @param {MixOptions} [options]
  * @returns {PlainColorObject}
  */
-export function mix (c1, c2, p = 0.5, o = {}) {
+export function mix (c1, c2, p, o = {}) {
 	[c1, c2] = [getColor(c1), getColor(c2)];
 
 	if (type(p) === "object") {
@@ -46,7 +45,7 @@ export function mix (c1, c2, p = 0.5, o = {}) {
 	}
 
 	let r = range(c1, c2, o);
-	return r(p);
+	return r(p ?? 0.5); // why not give p a default value like we do for options? Overloading doesn't work, and TS complains
 }
 
 /**

@@ -6,7 +6,7 @@
 			"include": true,
 			"mandatory": true,
 			"url": "https://en.wikipedia.org/wiki/CIELAB_color_space",
-			"description": "A CIE color space with fairly good perceptually uniformity. Lab has a central Lightness axis (black at 0, white at 100, mid-grey at 50) and two opponent color axes. The a axis has pinkish reds in the positive direction and the complementary bluish-greens in the negative direction. The b axis has yellows in the positive direction and the complementary blue-violets in the negative direction. The geometric distance between to points in Lab is a good first approximation to how different the two colors look. Commercial color-measuring instruments report values in Lab, and it is used as an intermediate space for gamut mapping and colorspace interconversion."
+			"description": "A CIE color space with fairly good perceptually uniformity. Lab has a central Lightness axis (black at 0, white at 100, mid-grey at 50) and two opponent color axes. The a axis has pinkish reds in the positive direction and the complementary bluish-greens in the negative direction. The b axis has yellows in the positive direction and the complementary blue-violets in the negative direction. The geometric distance between two points in Lab is a good first approximation to how different the two colors look. Commercial color-measuring instruments report values in Lab, and it is used as an intermediate space for gamut mapping and colorspace interconversion."
 		},
 		{
 			"name": "LCH",
@@ -55,6 +55,14 @@
 			"description": "The color space of most commercial wide gamut screens today. 50% larger gamut (by volume) than sRGB. CSS Color level 4 allowed these colors to be used in stylesheets for the first time. It is derived from a digital cinema projector standard, DCI-P3 but the transfer curve, whitepoint and viewing conditions are the same as for sRGB."
 		},
 		{
+			"name": "Linear Display P3",
+			"id": "p3-linear",
+			"include": true,
+			"dependencies": ["srgb"],
+			"url": "https://drafts.csswg.org/css-color-4/#predefined-display-p3-linear",
+			"description": "Display P3, but with a linear-light transfer function."
+		},
+		{
 			"name": "Adobe® RGB Compatible",
 			"id": "a98rgb",
 			"dependencies": ["srgb"],
@@ -67,6 +75,13 @@
 			"dependencies": ["srgb"],
 			"url": "https://en.wikipedia.org/wiki/Rec._2020",
 			"description": "A very wide gamut RGB color space used in 4k and 8k UHDTV. It is currently difficult to make a screen which displays the entire REC.2020 gamut; current movies broadcast in this colorspace do not use the full gamut, although they do use a little more than P3."
+		},
+		{
+			"name": "REC.2020 Scene Referred",
+			"id": "--rec2020-oetf",
+			"dependencies": ["srgb"],
+			"url": "https://en.wikipedia.org/wiki/Rec._2020",
+			"description": "Scene-referred version of REC.2020"
 		},
 		{
 			"name": "REC.2100-PQ",

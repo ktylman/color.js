@@ -1,6 +1,6 @@
 {
 	"name": "colorjs.io",
-	"version": "0.6.0-alpha.1",
+	"version": "0.6.0-beta.1",
 	"description": "Let’s get serious about color",
 	"files": [
 		"dist/",
@@ -27,6 +27,18 @@
 			"require": {
 				"types": "./types/src/index-fn.d.ts",
 				"default": "./dist/color-fn.cjs"
+			}
+		},
+		"./spaces": {
+			"import": {
+				"types": "./types/src/spaces/index.d.ts",
+				"default": "./src/spaces/index.js"
+			}
+		},
+		"./src/*": {
+			"import": {
+				"types": "./types/src/*",
+				"default": "./src/*"
 			}
 		},
 		"./dist/*": "./dist/*"
@@ -68,7 +80,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/LeaVerou/color.js.git"
+		"url": "git+https://github.com/color-js/color.js.git"
 	},
 	"keywords": [
 		"color"
@@ -83,7 +95,7 @@
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/LeaVerou/color.js/issues"
+		"url": "https://github.com/color-js/color.js/issues"
 	},
 	"homepage": "https://colorjs.io",
 	"devDependencies": {
@@ -101,18 +113,18 @@
 		"brep": "^0.0.9",
 		"core-js": "^3.36.0",
 		"eslint": "latest",
-		"htest.dev": ">=0.0.14",
+		"htest.dev": ">=0.0.20",
 		"mathjs": "^12.4.0",
 		"npm-run-all": "^4.1.5",
 		"prettier": "^3.4.2",
-		"prettier-plugin-brace-style": "^0.7.1",
-		"prettier-plugin-merge": "^0.7.2",
-		"prettier-plugin-space-before-function-paren": "^0.0.4",
+		"prettier-plugin-brace-style": "^0.8.1",
+		"prettier-plugin-merge": "^0.8.0",
+		"prettier-plugin-space-before-function-paren": "^0.0.9",
 		"release-it": "^17.1.1",
 		"rollup": "^4.12.0",
-		"typedoc": "^0.25.12",
-		"typedoc-plugin-rename-defaults": "^0.7.0",
-		"typescript": "^5.3.3"
+		"typedoc": "^0.26.11",
+		"typedoc-plugin-rename-defaults": "^0.7.3",
+		"typescript": "^5.5.4"
 	},
 	"sideEffects": [
 		"./src/index.js",

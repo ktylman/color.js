@@ -1,10 +1,7 @@
 import ColorSpace from "./ColorSpace.js";
 import set from "./set.js";
 
-// Type "imports"
-/** @typedef {import("./types.js").ColorTypes} ColorTypes */
-/** @typedef {import("./types.js").PlainColorObject} PlainColorObject */
-/** @typedef {import("./types.js").Ref} Ref */
+/** @import { ColorTypes, PlainColorObject, Ref } from "./types.js" */
 
 /**
  * @param {ColorTypes} color
@@ -27,3 +24,9 @@ export function darken (color, amount = 0.25) {
 	let /** @type {Ref} */ lightness = [space, "l"];
 	return set(color, lightness, l => l * (1 - amount));
 }
+
+/** @type {"color"} */
+lighten.returns = "color";
+
+/** @type {"color"} */
+darken.returns = "color";
