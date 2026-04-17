@@ -1,3 +1,4 @@
+/// <reference lib="dom" />
 /**
  * @packageDocumentation
  * Defines and re-exports many types for use throughout the library.
@@ -140,6 +141,11 @@ export interface SerializeOptions {
 	 * @default "default"
 	 */
 	format?: string | Format | undefined;
+	/**
+	 * Whether or not to collapse colors to three- or four-digit hex when possible
+	 * @default true
+	 */
+	collapse?: boolean | undefined;
 	/**
 	 * Adjust coordinates to fit in gamut first
 	 * @default false

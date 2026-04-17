@@ -1,6 +1,6 @@
 {
 	"name": "colorjs.io",
-	"version": "0.6.0-beta.1",
+	"version": "0.6.1",
 	"description": "Let’s get serious about color",
 	"files": [
 		"dist/",
@@ -50,6 +50,7 @@
 			]
 		}
 	},
+	"types": "./types",
 	"type": "module",
 	"main": "./dist/color.cjs",
 	"module": "./dist/color.js",
